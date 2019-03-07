@@ -728,6 +728,9 @@ class Github(object):
         """
         return Installation.Installation(self.__requester, headers={}, attributes={"id": id}, completed=True)
 
+    def refreshToken(self, token):
+        self.__requester.refresh(token)
+
 
 class GithubIntegration(object):
     """

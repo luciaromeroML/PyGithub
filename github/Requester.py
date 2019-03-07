@@ -353,6 +353,9 @@ class Requester:
             headers["Content-Length"] = str(os.path.getsize(input))
         return self.__requestEncode(cnx, verb, url, parameters, headers, input, encode)
 
+    def refresh(self,token):
+        self.__authorizationHeader = "token " + token
+
     def __requestEncode(self, cnx, verb, url, parameters, requestHeaders, input, encode):
         assert verb in ["HEAD", "GET", "POST", "PATCH", "PUT", "DELETE"]
         if parameters is None:
